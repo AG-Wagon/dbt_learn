@@ -1,5 +1,6 @@
 SELECT 
-    sales.date_date
+    sales.orders_id
+    ,sales.date_date
     ,sales.products_id
     ,sales.revenue
     ,sales.quantity
