@@ -2,12 +2,36 @@ version: 2
 sources:
   - name: raw
     schema: gz_raw_data
-    description: data_set
+    description: Greenweez data set
 
     tables:
       - name: product
         identifier: raw_gz_product
+        description: info about products
+        columns:
+          - name: products_id
+            tests:
+               - not_null
+               - unique     
       - name: sales
         identifier: raw_gz_sales
+        description: sales info, primary key is products_id with orders_id
+        freshness: 
+          warn_after:
+            count: 90
+            period: day
+        loaded_at_field: "CAST(date_date AS TIMESTAMP)"
+        columns:
+          - name: "orders_id || pdt_id"
+            tests:
+              - unique
+        
+        
       - name: ship
         identifier: raw_gz_ship
+        description: info about shipping and logistics, but no timing
+        columns:
+          - name: orders_id
+            tests:
+               - not_null
+               - unique
