@@ -37,7 +37,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   dbt_agirbes:
-    mart:
+    mart  :
       +materialized: table
       # finance_days.sql:
       #   +materialized: table
@@ -47,4 +47,7 @@ models:
       #   +materialized: table
       # mart_sales_margin.sql:
       #   +materialized: table
+      finance:
+        finance_days:
+          +schema: finance_days
     
