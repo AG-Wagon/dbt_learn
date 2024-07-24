@@ -35,7 +35,6 @@ sources:
             tests:
                - not_null
                - unique
-
   - name: inter
     schema: models/intermidiate
     tables:
