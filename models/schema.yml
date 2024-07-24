@@ -35,3 +35,13 @@ sources:
             tests:
                - not_null
                - unique
+
+  - name: inter
+    schema: models/intermidiate
+    tables:
+      - name: changes
+        identifier: int_sales_margin
+        columns:
+          - name: "orders_id || product_id"
+            tests:
+              - unique
